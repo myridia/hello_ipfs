@@ -37,7 +37,7 @@ while :; do
       printf "  \033[1mKubo (ipfs) - install on the HOST\033[0m\n\n"
       printf "  Option A (official script):\n"
       printf "    curl -fsSL https://dist.ipfs.tech/kubo/install.sh | sh\n"
-      printf "    export PATH=\"$HOME/.ipfs/kubo:$PATH\"\n\n"
+      printf "    export PATH="\$HOME/.ipfs/kubo:\$PATH"\n\n"
       printf "  Option B (Debian/apt):\n"
       printf "    sudo apt install kubo  (check version)\n\n"
       printf "  Option C (binary): https://dist.ipfs.tech/kubo/\n\n"
@@ -61,12 +61,11 @@ while :; do
     4)
       printf "  \033[1mAdd site and get CID (on HOST)\033[0m\n\n"
       printf "  cd %s\n" "$DIR"
-      printf "  # write nothing but hash\n"
+      printf "  # write nothing but hash (recommended for this demo)\n"
       printf "  ipfs add -r --only-hash --quiet public | tail -n1 > .cid\n"
       printf "  cat .cid\n"
-      printf "  # or pin it properly:\n"
-      printf "  ipfs add -r public\n"
-      printf "  # last line gives root CID (dir)\n\n"
+      printf "  # or pin the full files:\n"
+      printf "  ipfs add -r public\n\n"
       ;;
     5)
       printf "  \033[1mPublish CID (on HOST)\033[0m\n\n"
