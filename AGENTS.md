@@ -46,6 +46,10 @@ The user starts the tasks — do not run `ask.sh` from the agent. Verify with
 written by `ask.sh`, and are shared with the host via the bind mount.
 
 ## Conventions
+- **The page stays self-contained.** Inline `<style>`, inline `<svg>`, inline
+  `<script>`, favicon as a `data:` URI. Nothing may be loaded from outside the
+  file — the `external requests` row the page prints is the check
+  (`performance.getEntriesByType("resource")` filtered to other origins must be 0).
 - The CID is the identity of the content. Editing `public/index.html` changes
   the CID — re-run task 4, then task 5 to move the published name.
 - `--only-hash` on task 4 keeps the repo clean: no CID-named files are written
