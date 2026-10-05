@@ -19,7 +19,7 @@ while :; do
   printf "  ┌─────┬──────────────────────────────────────────────────┐\n"
   printf "  │  ID │ Description                                      │\n"
   printf "  ├─────┼──────────────────────────────────────────────────┤\n"
-  printf "  │  1  │ Show CLI - install ipfs on HOST                  │\n"
+  printf "  │  1  │ Show CLI - install Kubo (ipfs) on HOST           │\n"
   printf "  │  0  │ Exit                                             │\n"
   printf "  └─────┴──────────────────────────────────────────────────┘\n\n"
   printf "  Enter Task ID: "
@@ -27,21 +27,11 @@ while :; do
 
   case "$task" in
     1)
-      export PATH="$HOME/.ipfs/kubo:$HOME/.ipfs/kubo/bin:$HOME/go/bin:$PATH"
-      if command -v ipfs >/dev/null 2>&1; then
-        printf "  ok  ipfs installed: %s (%s)\n\n" "$(command -v ipfs)" "$(ipfs --version 2>&1 | head -1)"
-      else
-        printf "  installing ipfs (verbose)...\n"
-        curl -fsSL https://dist.ipfs.tech/kubo/install.sh 2>&1 | while IFS= read -r line; do
-          printf "    %s\n" "$line"
-        done
-        export PATH="$HOME/.ipfs/kubo:$HOME/.ipfs/kubo/bin:$HOME/go/bin:$PATH"
-        if command -v ipfs >/dev/null 2>&1; then
-          printf "\n  ok  ipfs installed: %s (%s)\n\n" "$(command -v ipfs)" "$(ipfs --version 2>&1 | head -1)"
-        else
-          printf "\n  FAIL  ipfs not found\n\n"
-        fi
-      fi
+      printf "  run on host:\n"
+      printf "    curl -fsSL https://dist.ipfs.tech/kubo/install.sh | sh\n"
+      printf "    export PATH=\$HOME/.ipfs/kubo:\$HOME/.ipfs/kubo/bin:\$PATH\n"
+      printf "    ipfs --version\n"
+      printf "    ipfs version\n\n"
       ;;
     0)
       printf "  Bye.\n\n"
