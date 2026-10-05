@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# hello_ipfs — ask.sh runtime state (*.log and *.pid already covered above)
+.cid
