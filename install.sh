@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-GOVERSION=$(wget -qO- https://go.dev/VERSION)
+GOVERSION=$(wget -qO- https://go.dev/VERSION?m=text | head -n1)
 if [ -z "$GOVERSION" ]; then
   echo "FAIL: could not fetch latest Go version from https://go.dev/VERSION"
   exit 1
@@ -32,3 +32,8 @@ else
 fi
 
 echo "ok: installed /usr/local/go"
+
+grep -q '/usr/local/go/bin' /root/.bashrc || echo 'export PATH=$PATH:/usr/local/go/bin' >> /root/.bashrc
+source ~/.bashrc 
+#export PATH=$PATH:/usr/local/go/bin
+go version 
