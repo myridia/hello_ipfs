@@ -6,6 +6,12 @@ Static page in `public/`, served locally or added to IPFS.
 
 https://letsdecentralize.org/tutorials/ipfs.html
 
+## Install Go
+```
+sudo ./install.sh
+```
+Downloads the latest Go, extracts it to `/usr/local/go`, and adds `/usr/local/go/bin` to `PATH`.
+
 ## Install Kubo
 ```
 git clone https://github.com/ipfs/kubo; cd kubo
