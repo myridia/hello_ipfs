@@ -1,3 +1,6 @@
+edie 
+kubo
+*.gz 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -218,3 +221,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# hello_ipfs — ask.sh runtime state (*.log and *.pid already covered above)
+.cid
+
+# ipfs add writes one file per block into the working directory, named by CID
+Qm*
+bafy*
+bafk*
